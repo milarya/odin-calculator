@@ -1,22 +1,25 @@
 * {
     box-sizing: border-box;
-    background-color: antiquewhite;
-    outline: 1px solid red;
+    background-color: BlanchedAlmond;
+    outline: 0px solid red;
     text-align: center;
     font-size: large;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     color: DarkSlateGray;
+    border-radius: 3px;
 }
 
 .calc-container {
+    margin: auto;
     width: 500px;
-    height: 500px;
+    height: 400px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
 }
 
 .calc-buttons {
@@ -29,16 +32,20 @@
 }
 
 .calc-button {
-    padding: 5px;
+    padding: 3px;
     width: 50px;
     height: 30px;
-    border: 2px solid SaddleBrown;
+    border: 3px solid SaddleBrown;
     background-color: Gold;
-    border-radius: 3px;
 }
 
 .calc-result {
+    width: 400px;
+    padding: 10px 25px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     font-size: xx-large;
+    align-self: flex-end;
+    background-color: LightGray;
+    border: 3px solid DarkSlateGray;
 }
