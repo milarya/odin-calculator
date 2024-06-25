@@ -117,14 +117,13 @@ btnCalculate.addEventListener('click', () => {
 function calculate() {
     let calculationArray = displayValue.split(' ');
     console.log(calculationArray);
-    // @todo loop through whole array
     while (calculationArray.length > 1) {
         // operate
         let semiResult = operate(calculationArray[0], calculationArray[1], calculationArray[2]);
         calculationArray.splice(0, 3, semiResult);
-        console.log(calculationArray);
+        // console.log(calculationArray);
     }
     result = calculationArray[0];
-    console.log('result: ' + result);
+    // console.log('result: ' + result);
     populateDisplay();
 }
