@@ -4,6 +4,8 @@ let num1;
 let num2;
 let operator;
 
+let displayValue ='';
+
 // calculator functions
 
 function addNumbers(num1, num2) {
@@ -60,3 +62,21 @@ function toggleCalculatorState(bool) {
     }
 }
 */
+
+// add event listeners number buttons
+const btnNumber = document.querySelectorAll('.number');
+
+btnNumber.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        populateDisplay(event.target.innerText);
+    })
+})
+
+const displayContainer = document.querySelector('.calc-display');
+const operationContainer = document.querySelector('.calc-operation');
+const resultContainer = document.querySelector('.calc-result');
+
+function populateDisplay(string) {
+    displayValue += string;
+    operationContainer.innerText = displayValue;    
+}

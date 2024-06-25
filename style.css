@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     background-color: BlanchedAlmond;
-    outline: 1px solid red;
+    outline: 0px solid red;
     text-align: center;
     font-size: large;
     font-weight: bold;
@@ -39,13 +39,19 @@
     background-color: Gold;
 }
 
-.calc-result {
+.calc-display {
     width: 304px;
     padding: 10px 25px;
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
     font-size: xx-large;
     align-self: flex-end;
     background-color: LightGray;
     border: 3px solid DarkSlateGray;
+}
+
+.calc-display > * {
+    font-size: xx-large;
+    background-color: LightGray;
 }
