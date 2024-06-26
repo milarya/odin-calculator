@@ -1,11 +1,10 @@
 console.log('Starting Javascript');
 
-let num1;
-let num2;
-let operator;
+let num1 ='';
+let num2 = '';
+let operator = '';
 
 let displayValue = '';
-let equalText = '';
 let result = '';
 
 // calculator functions
@@ -71,40 +70,41 @@ function toggleCalculatorState(bool) {
 const btnNumber = document.querySelectorAll('.number');
 btnNumber.forEach((button) => {
     button.addEventListener('click', (event) => {
-        // only show equality sign 
-        // if there is enough content in display value
-        if (displayValue != '') {
-            equalText = '=';
+        if (operator == '') {
+            num1 += event.target.innerText;
+            displayValue = num1;
+        } else {
+            num2 += event.target.innerText;
+            displayValue = num2;
         }
-        displayValue += event.target.innerText;
         populateDisplay();
     })
 })
+
 const btnOperator = document.querySelectorAll('.operation');
 btnOperator.forEach((button) => {
     button.addEventListener('click', (event) => {
-        displayValue += ' ' + event.target.innerText + ' ';
+        calculate();
+        operator = event.target.innerText;
         populateDisplay();
     })
 })
 
 const displayContainer = document.querySelector('.calc-display');
-const operationContainer = document.querySelector('.calc-operation');
-const equalContainer = document.querySelector('.calc-equal');
-const resultContainer = document.querySelector('.calc-result');
 
 function populateDisplay() {
-    operationContainer.innerText = displayValue;
-    equalContainer.innerText = equalText;
-    resultContainer.innerText = result; 
+    console.log(num1, operator, num2);
+    displayContainer.innerText = displayValue;
 }
 
 // add event listener to clear button
 const btnClear = document.querySelector('.clear');
 btnClear.addEventListener('click', () => {
-    displayValue = '';
-    equalText = '';
-    result = '---';
+    num1 ='';
+    num2 = '';
+    operator = '';
+    displayValue = '---';
+    result = '';
     populateDisplay();
 });
 
@@ -115,15 +115,17 @@ btnCalculate.addEventListener('click', () => {
 })
 
 function calculate() {
-    let calculationArray = displayValue.split(' ');
-    console.log(calculationArray);
-    while (calculationArray.length > 1) {
-        // operate
-        let semiResult = operate(calculationArray[0], calculationArray[1], calculationArray[2]);
-        calculationArray.splice(0, 3, semiResult);
-        // console.log(calculationArray);
+    // only calculate a result if all 3 variables are filled
+
+    if (num1 != '' && operator != '' && num2 != '') {
+        console.log('Calculating');
+        let calcResult = operate(num1, operator, num2);
+        // write result to num1 for the next calculation
+        num1 = calcResult;
+        operator = '';
+        num2 = '';
+        result = calcResult;
+        displayValue = calcResult;
+        populateDisplay();
     }
-    result = calculationArray[0];
-    // console.log('result: ' + result);
-    populateDisplay();
 }
