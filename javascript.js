@@ -100,6 +100,30 @@ btnOperator.forEach((button) => {
     })
 });
 
+const btnInvert = document.querySelector('.invert');
+btnInvert.addEventListener('click', () => {
+    if (operator === '') {
+        num1 = invertNumber(num1);
+        updateDisplayValue(num1);
+    } else {
+        num2 = invertNumber(num2);
+        updateDisplayValue(num2);
+    }
+    populateDisplay();
+});
+
+const btnDecimal = document.querySelector('.decimal');
+function setDecimalButton(number) {
+    // disable or enable the decimal button based on
+    // if number already has a decimal point
+    if (number.toString().includes('.') || number === 'disabled') {
+        // disable decimal button
+        btnDecimal.disabled = true;
+    } else if (!number.toString().includes('.') || number === 'enabled') {
+        // enable deicmal button
+        btnDecimal.disabled = false;
+    }
+}
 
 // add event listener to clear button
 const btnClear = document.querySelector('.clear');
@@ -140,6 +164,7 @@ function calculate() {
 
 const displayContainer = document.querySelector('.calc-display');
 function populateDisplay() {
+    console.log(num1, operator, num2);
     displayContainer.innerText = displayValue;
 }
 
@@ -153,15 +178,18 @@ function updateDisplayValue(value) {
     displayValue = value.toString().slice(0,13);
 }
 
-const btnDecimal = document.querySelector('.decimal');
-function setDecimalButton(number) {
-    // disable or enable the decimal button based on
-    // if number already has a decimal point
-    if (number.toString().includes('.') || number === 'disabled') {
-        // disable decimal button
-        btnDecimal.disabled = true;
-    } else if (!number.toString().includes('.') || number === 'enabled') {
-        // enable deicmal button
-        btnDecimal.disabled = false;
+function invertNumber(number) {
+    // handle empty numbers
+    if (number === '') {
+        return '-';
+    } else if (number === '-') {
+        return '';
+    // handle non-empty numbers
+    } else if (number.toString()[0] === '-') {
+        // remove the leading '-'
+        return number.toString().slice(1);
+    } else {
+        // add a leading '-'
+        return '-' + number;
     }
 }
