@@ -72,19 +72,21 @@ function toggleCalculatorState(bool) {
 */
 
 // add event listeners to number + operation buttons
-const btnNumber = document.querySelectorAll('.number');
+const btnNumber = document.querySelectorAll('.number, .decimal');
 btnNumber.forEach((button) => {
     button.addEventListener('click', (event) => {
         if (operator === '') {
             num1 += event.target.innerText;
+            setDecimalButton(num1);
             updateDisplayValue(num1);
         } else {
             num2 += event.target.innerText;
+            setDecimalButton(num2);
             updateDisplayValue(num2);
         }
         populateDisplay();
     })
-})
+});
 
 const btnOperator = document.querySelectorAll('.operation');
 btnOperator.forEach((button) => {
@@ -95,16 +97,11 @@ btnOperator.forEach((button) => {
         clearActiveButtons();
         event.target.classList.add('active');
         operator = event.target.innerText;
+        setDecimalButton('enabled');
         populateDisplay();
     })
-})
+});
 
-const displayContainer = document.querySelector('.calc-display');
-
-function populateDisplay() {
-    console.log(num1, operator, num2);
-    displayContainer.innerText = displayValue;
-}
 
 // add event listener to clear button
 const btnClear = document.querySelector('.clear');
@@ -114,6 +111,7 @@ btnClear.addEventListener('click', () => {
     operator = '';
     updateDisplayValue('---');
     result = '';
+    setDecimalButton('enabled');
     populateDisplay();
 });
 
@@ -121,7 +119,7 @@ btnClear.addEventListener('click', () => {
 const btnCalculate = document.querySelector('.calculate');
 btnCalculate.addEventListener('click', () => {
     calculate();
-})
+});
 
 function calculate() {
     // only calculate a result if all 3 variables are filled
@@ -129,8 +127,10 @@ function calculate() {
     if (num1 !== '' && operator !== '' && num2 !== '') {
         console.log('Calculating');
         let calcResult = operate(num1, operator, num2);
-        // write result to num1 for the next calculation
+        // write result to num1 for the next calculation and
+        // dis/enable decimal button accordingly
         num1 = calcResult;
+        setDecimalButton(num1);
         operator = '';
         num2 = '';
         result = calcResult;
@@ -139,6 +139,12 @@ function calculate() {
         // clear current active buttons
         clearActiveButtons();
     }
+}
+
+const displayContainer = document.querySelector('.calc-display');
+function populateDisplay() {
+    console.log(num1, operator, num2);
+    displayContainer.innerText = displayValue;
 }
 
 function clearActiveButtons() {
@@ -151,4 +157,19 @@ function updateDisplayValue(value) {
     console.log('value: ' + value);
     displayValue = value.toString().slice(0,13);
     console.log('displayValue: ' + displayValue);
+}
+
+const btnDecimal = document.querySelector('.decimal');
+function setDecimalButton(number) {
+    // disable or enable the decimal button based on
+    // if number already has a decimal point
+    if (number.toString().includes('.') || number === 'disabled') {
+        // disable decimal button
+        console.log('disabling decimal button, number: ' + number);
+        btnDecimal.disabled = true;
+    } else if (!number.toString().includes('.') || number === 'enabled') {
+        // enable deicmal button
+        btnDecimal.disabled = false;
+        console.log('enabling decimal button, number: ' + number);
+    }
 }

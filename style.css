@@ -46,6 +46,12 @@
     flex-shrink: 1;
 }
 
+button:disabled {
+    background-color: LightSalmon;
+    color: lightslategray;
+    border-color: lightslategray;
+}
+
 .number {
     background-color: Gold;
 }
