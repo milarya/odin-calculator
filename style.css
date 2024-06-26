@@ -63,3 +63,7 @@
     background-color: LightGray;
     overflow: hidden;
 }
+
+.active {
+    background-color: OrangeRed;
+}

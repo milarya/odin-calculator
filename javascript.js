@@ -35,10 +35,15 @@ function operate(num1, operator, num2) {
             return subtractNumbers(num1, num2); 
         case '*': 
             return multiplyNumbers(num1, num2); 
-        case '/': 
-            return divideNumbers(num1, num2); 
+        case '/': {
+            if (num2 !== 0) {
+                return divideNumbers(num1, num2);
+            } else {
+                return 'nope.';
+            }
+        }
         default:
-            console.log('no valid operator found');
+            return 'no valid operator';
     }
 }
 
@@ -70,7 +75,7 @@ function toggleCalculatorState(bool) {
 const btnNumber = document.querySelectorAll('.number');
 btnNumber.forEach((button) => {
     button.addEventListener('click', (event) => {
-        if (operator == '') {
+        if (operator === '') {
             num1 += event.target.innerText;
             displayValue = num1;
         } else {
@@ -84,7 +89,11 @@ btnNumber.forEach((button) => {
 const btnOperator = document.querySelectorAll('.operation');
 btnOperator.forEach((button) => {
     button.addEventListener('click', (event) => {
+        // calculate what was queued
         calculate();
+        // prepare operator for next calculation
+        clearActiveButtons();
+        event.target.classList.add('active');
         operator = event.target.innerText;
         populateDisplay();
     })
@@ -117,7 +126,7 @@ btnCalculate.addEventListener('click', () => {
 function calculate() {
     // only calculate a result if all 3 variables are filled
 
-    if (num1 != '' && operator != '' && num2 != '') {
+    if (num1 !== '' && operator !== '' && num2 !== '') {
         console.log('Calculating');
         let calcResult = operate(num1, operator, num2);
         // write result to num1 for the next calculation
@@ -127,5 +136,13 @@ function calculate() {
         result = calcResult;
         displayValue = calcResult;
         populateDisplay();
+        // clear current active buttons
+        clearActiveButtons();
     }
+}
+
+function clearActiveButtons() {
+    btnOperator.forEach((button) => {
+        button.classList.remove('active');
+    });
 }
