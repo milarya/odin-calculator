@@ -48,18 +48,20 @@
 }
 
 .calc-display {
-    width: auto;
+    max-width: 300px;
     min-width: 278px;
-    padding: 10px 25px;
+    padding: 10px;
     display: flex;
     justify-content: flex-end;
     font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
     background-color: LightGray;
     border: 3px solid DarkSlateGray;
 }
 
 .calc-display > * {
     font-size: xx-large;
+
     background-color: LightGray;
     overflow: hidden;
 }

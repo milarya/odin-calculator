@@ -77,10 +77,10 @@ btnNumber.forEach((button) => {
     button.addEventListener('click', (event) => {
         if (operator === '') {
             num1 += event.target.innerText;
-            displayValue = num1;
+            updateDisplayValue(num1);
         } else {
             num2 += event.target.innerText;
-            displayValue = num2;
+            updateDisplayValue(num2);
         }
         populateDisplay();
     })
@@ -112,7 +112,7 @@ btnClear.addEventListener('click', () => {
     num1 ='';
     num2 = '';
     operator = '';
-    displayValue = '---';
+    updateDisplayValue('---');
     result = '';
     populateDisplay();
 });
@@ -134,7 +134,7 @@ function calculate() {
         operator = '';
         num2 = '';
         result = calcResult;
-        displayValue = calcResult;
+        updateDisplayValue(calcResult);
         populateDisplay();
         // clear current active buttons
         clearActiveButtons();
@@ -145,4 +145,10 @@ function clearActiveButtons() {
     btnOperator.forEach((button) => {
         button.classList.remove('active');
     });
+}
+
+function updateDisplayValue(value) {
+    console.log('value: ' + value);
+    displayValue = value.toString().slice(0,13);
+    console.log('displayValue: ' + displayValue);
 }
