@@ -145,7 +145,6 @@ btnCalculate.addEventListener('click', () => {
 
 function calculate() {
     // only calculate a result if all 3 variables are filled
-
     if (num1 !== '' && operator !== '' && num2 !== '') {
         let calcResult = operate(num1, operator, num2);
         // write result to num1 for the next calculation and
@@ -164,7 +163,7 @@ function calculate() {
 
 const displayContainer = document.querySelector('.calc-display');
 function populateDisplay() {
-    console.log(num1, operator, num2);
+    // console.log(num1, operator, num2);
     displayContainer.innerText = displayValue;
 }
 
