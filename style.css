@@ -20,13 +20,16 @@
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 50px;
 }
 
+.calc-container * {
+    background-color: BlanchedAlmond;;
+}
+
 .calc-buttons {
-    background-color: BlanchedAlmond;
     display: flex;
     max-width: 294px;
     flex-wrap: wrap;
