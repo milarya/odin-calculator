@@ -15,7 +15,6 @@
     border: 3px solid darkslategray;
     margin: 25px auto;
     max-width: 350px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,7 +22,12 @@
 }
 
 .calc-content {
-    height: 100vh;
+    height: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 25px;
 }
 
 .calc-container * {
@@ -32,7 +36,6 @@
 
 .calc-buttons {
     display: flex;
-    max-width: 330px;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 7px;
@@ -58,9 +61,6 @@ button:disabled {
 }
 
 .calc-display {
-    max-width: 350px;
-    min-width: 278px;
-    margin: 25px 0px;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
