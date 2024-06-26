@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    background-color: BlanchedAlmond;
+    background-color: whitesmoke;
     outline: 0px solid red;
     text-align: center;
     font-size: large;
@@ -12,8 +12,10 @@
 }
 
 .calc-container {
+    background-color: BlanchedAlmond;
+    border: 3px solid darkslategray;
     margin: auto;
-    padding: 25px 0px;
+    padding: 10px 10px;
     max-width: 320px;
     height: 400px;
     display: flex;
@@ -24,11 +26,12 @@
 }
 
 .calc-buttons {
+    background-color: BlanchedAlmond;
     display: flex;
-    max-width: 320px;
+    max-width: 294px;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 7px;
 }
 
 .calc-button {
@@ -36,17 +39,21 @@
     width: 50px;
     height: 30px;
     border: 3px solid SaddleBrown;
+    background-color: Orange;
+    flex-shrink: 1;
+}
+
+.number {
     background-color: Gold;
 }
 
 .calc-display {
-    width: 320px;
+    width: auto;
+    min-width: 278px;
     padding: 10px 25px;
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
     font-size: xx-large;
-    align-self: flex-end;
     background-color: LightGray;
     border: 3px solid DarkSlateGray;
 }
@@ -54,4 +61,5 @@
 .calc-display > * {
     font-size: xx-large;
     background-color: LightGray;
+    overflow: hidden;
 }
