@@ -174,7 +174,7 @@ function clearActiveButtons() {
 }
 
 function updateDisplayValue(value) {
-    displayValue = value.toString().slice(0,13);
+    displayValue = value.toString().slice(0,15);
 }
 
 function invertNumber(number) {
