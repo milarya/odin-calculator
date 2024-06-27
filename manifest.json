@@ -1,5 +1,5 @@
 {
-    "name": "Nins Odin Calc PWA",
+    "name": "Nins Calc PWA",
     "icons": [
       {
         "src": "icons/512.png",
@@ -13,5 +13,5 @@
       }
     ],
     "start-url": "/",
-    "display": "standalone"
+    "display": "fullscreen"
   }
