@@ -45,30 +45,6 @@ function operate(num1, operator, num2) {
 	}
 }
 
-/* @todo implement on/off funcionality later!
-const btnOn = document.querySelector('.on');
-const btnOff = document.querySelector('.off');
-
-btnOn.addEventListener('click', () => {
-    toggleCalculatorState(true);
-});
-
-btnOff.addEventListener('click', () => {
-    toggleCalculatorState(false);
-});
-
-function toggleCalculatorState(bool) {
-    if (bool === true) {
-        clearResult();
-        addResult('0,0');
-    } else {
-        // empty results
-        clearResult();
-        // make all buttons except 'on' disabled
-    }
-}
-*/
-
 // add event listeners to number + operation buttons
 const btnNumber = document.querySelectorAll('.number, .decimal');
 btnNumber.forEach((button) => {
@@ -165,6 +141,14 @@ const displayContainer = document.querySelector('.calc-display');
 function populateDisplay() {
 	// console.log(num1, operator, num2);
 	displayContainer.innerText = displayValue;
+    // add eastereggs
+    if (displayValue === '6426') {
+        setFooterText('I love you Nico');
+        setIcon('heart');
+    } else {
+        setFooterText();
+        setIcon();
+    }
 }
 
 function clearActiveButtons() {
@@ -191,4 +175,14 @@ function invertNumber(number) {
 		// add a leading '-'
 		return '-' + number;
 	}
+}
+
+function setFooterText(text = 'Nins\' Odin Calculator') {
+    const footerH1 = document.querySelector('.footer h1')
+    footerH1.innerText = text;
+}
+
+function setIcon(icon = 'calculator') {
+    const iconDiv = document.querySelector('.icon');
+    iconDiv.innerHTML = '<i class="fa-solid fa-' + icon + ' fa-2xl"></i>';
 }
