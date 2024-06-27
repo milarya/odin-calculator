@@ -12,6 +12,6 @@
         "sizes": "192x192"
       }
     ],
-    "start-url": "/",
+    "start-url": "/?fullscreen=true",
     "display": "fullscreen"
   }
