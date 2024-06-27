@@ -1,89 +1,90 @@
 * {
-    box-sizing: border-box;
-    background-color: whitesmoke;
-    outline: 0px solid red;
-    text-align: center;
-    font-size: large;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    color: DarkSlateGray;
-    border-radius: 3px;
+	box-sizing: border-box;
+	background-color: whitesmoke;
+	outline: 0px solid red;
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: DarkSlateGray;
+	border-radius: 3px;
 }
 
 .calc-container {
-    background-color: BlanchedAlmond;
-    border: 3px solid darkslategray;
-    margin: 25px auto;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+	background-color: BlanchedAlmond;
+	border: 3px solid darkslategray;
+	margin: 25px auto;
+	max-width: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .calc-content {
-    height: 400px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 25px;
+	height: 400px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 25px;
 }
 
 .calc-container * {
-    background-color: BlanchedAlmond;;
+	background-color: BlanchedAlmond;
 }
 
 .calc-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 7px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 7px;
 }
 
 .calc-button {
-    padding: 3px;
-    width: 50px;
-    height: 30px;
-    border: 3px solid SaddleBrown;
-    background-color: Orange;
-    flex-shrink: 1;
+	padding: 3px;
+	width: 50px;
+	height: 30px;
+	border: 3px solid SaddleBrown;
+	background-color: Orange;
+	flex-shrink: 1;
 }
 
 button:disabled {
-    background-color: LightSalmon;
-    color: lightslategray;
-    border-color: lightslategray;
+	background-color: LightSalmon;
+	color: lightslategray;
+	border-color: lightslategray;
 }
 
 .number {
-    background-color: Gold;
+	background-color: Gold;
 }
 
 .calc-display {
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    font-size: xx-large;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: LightGray;
-    border: 3px solid DarkSlateGray;
+	padding: 10px;
+	display: flex;
+	justify-content: flex-end;
+	font-size: xx-large;
+	font-family: 'Courier New', Courier, monospace;
+	background-color: LightGray;
+	border: 3px solid DarkSlateGray;
 }
 
 .calc-display > * {
-    font-size: xx-large;
+	font-size: xx-large;
 
-    background-color: LightGray;
-    overflow: hidden;
+	background-color: LightGray;
+	overflow: hidden;
 }
 
 .active {
-    background-color: OrangeRed;
+	background-color: OrangeRed;
 }
 
-.footer, .footer * {
-    width: 100%;
-    background-color: darkslategray;
-    color: antiquewhite;
-    border-radius: 0px;
+.footer,
+.footer * {
+	width: 100%;
+	background-color: darkslategray;
+	color: antiquewhite;
+	border-radius: 0px;
 }
